@@ -1,4 +1,7 @@
+# URL-Shortener
+
 Models
+
 Url Model
 { urlCode: { mandatory, unique, lowercase, trim }, longUrl: {mandatory, valid url}, shortUrl: {mandatory, unique} }
 
@@ -9,11 +12,13 @@ Return the shortened unique url. Refer this for the response
 Ensure the same response is returned for an original url everytime
 Return HTTP status 400 for an invalid request
 
+
 GET /:urlCode
 Redirect to the original URL corresponding
 Use a valid HTTP status code meant for a redirection scenario.
 Return a suitable error for a url not found
 Return HTTP status 400 for an invalid request
+
 
 Phase II
 Use caching while creating the shortened url to minimize db calls.

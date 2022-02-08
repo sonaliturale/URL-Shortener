@@ -26,13 +26,12 @@ const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
 const createUrl = async function(req, res) {
     try {
         if (!(Object.keys(req.body).length > 0)) { // Checking Body is not Empty
-            //console.log(1)
+            
             res.status(400).send("No Url Found")
         }
 
         const longUrl = req.body.longUrl.trim();
-        //console.log(longUrl)
-
+        
         //validation start
         if (!/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/.test(longUrl)) {
             if (!/(.com|.org|.co.in|.in|.co|.us)/.test(longUrl)) 
@@ -102,3 +101,5 @@ const getUrl = async function(req, res) {
 
 
 module.exports = {createUrl,getUrl}
+
+
