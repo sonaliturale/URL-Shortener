@@ -82,7 +82,7 @@ const getUrl = async function(req, res) {
             const FindUrl = await urlModel.findOne({ urlCode: urlCode })
               
             if (FindUrl) {
-                const storeCacheData = await SET_ASYNC(`${urlCode}`, JSON.stringify(FindUrl))//"EX", 20
+                const storeCacheData = await SET_ASYNC(`${urlCode}`, JSON.stringify(FindUrl))
                 console.log("Data Got Stored", storeCacheData)
                 return res.status(302).redirect(FindUrl.longUrl)
 
